@@ -76,7 +76,7 @@ public class Set extends LinkedCollection {
         return s3;
     }
 
-    public Set intersection (Set s2) {
+    public Set intersection(Set s2) {
         var s3 = new Set();
         var n = _head;
         while (n != null) {
@@ -89,8 +89,14 @@ public class Set extends LinkedCollection {
     }
 
     public Set difference(Set s2) {
-        
+        var s3 = new Set();
+        var n = _head;
+        while (n != null) {
+            if (!(s2.member(n.data))) {
+                s3.insert(n.data);
+            }
+            n = n.next;
+        }
+        return s3;
     }
-
-
 }
